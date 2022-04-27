@@ -26,6 +26,8 @@ public class OrechidRecipeJS extends BotaniaRecipeJS {
             biomes.addAll(ListJS.orSelf(args.get(3)).stream().map(String::valueOf).collect(Collectors.toList()));
         if (args.size() > 4)
             biomeBonus = (int) ((double) args.get(4));
+        outputItems.add(asItemStackJS(output));
+        inputItems.add(asItemStackJS(input));
     }
 
 
@@ -33,6 +35,9 @@ public class OrechidRecipeJS extends BotaniaRecipeJS {
     public void deserialize() {
         output = getBlockJS(json.get("output").getAsJsonObject().get("block").getAsString());
         input = getBlockJS(json.get("input").getAsString());
+        outputItems.add(asItemStackJS(output));
+        inputItems.add(asItemStackJS(input));
+
         weight = json.get("weight").getAsInt();
         if (json.has("biomes"))
             for (var biome : json.get("biomes").getAsJsonArray()) {

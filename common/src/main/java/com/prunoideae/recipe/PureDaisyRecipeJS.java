@@ -12,12 +12,16 @@ public class PureDaisyRecipeJS extends BotaniaRecipeJS {
     public void create(ListJS args) {
         output = getBlockJS(args.get(0));
         input = getBlockJS(args.get(1));
+        outputItems.add(asItemStackJS(output));
+        inputItems.add(asItemStackJS(input));
     }
 
     @Override
     public void deserialize() {
         output = getBlockJS(json.get("output").getAsJsonObject().get("name").getAsString());
         input = getBlockJS(json.get("input").getAsJsonObject().get("block").getAsString());
+        outputItems.add(asItemStackJS(output));
+        inputItems.add(asItemStackJS(input));
     }
 
     @Override
