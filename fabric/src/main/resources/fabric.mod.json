@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "kubejs_botania",
+  "version": "${version}",
+  "name": "KubeJS Botania",
+  "description": "KubeJS Botania integration",
+  "authors": [
+    "Prunoideae"
+  ],
+  "license": "GPLv3",
+  "icon": "assets/kubejs_botania/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.prunoideae.fabric.KubeJSBotaniaFabric"
+    ]
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.18.2",
+    "architectury": ">=4.2.50",
+    "kubejs": ">=1802.5.1-build.353",
+    "botania": ">=1.18.2-431"
+  }
+}
