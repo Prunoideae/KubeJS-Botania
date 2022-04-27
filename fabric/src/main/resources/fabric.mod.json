@@ -8,7 +8,10 @@
     "Prunoideae"
   ],
   "license": "GPLv3",
-  "icon": "assets/kubejs_botania/icon.png",
+  "contact": {
+    "homepage": "https://github.com/Prunoideae/KubeJS-Botania",
+    "sources": "https://github.com/Prunoideae/KubeJS-Botania"
+  },
   "environment": "*",
   "entrypoints": {
     "main": [
