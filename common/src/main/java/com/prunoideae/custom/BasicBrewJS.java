@@ -26,8 +26,12 @@ public class BasicBrewJS extends Brew {
         }
     }
 
-    public BasicBrewJS(int cost, MobEffectsHolder holders) {
-        super(cost, holders.cast());
+    public BasicBrewJS(Builder builder) {
+        super(builder.cost, new MobEffectsHolder(builder.holders).cast());
+        if (builder.noIncense)
+            setNotIncenseInfusable();
+        if (builder.noPendant)
+            setNotBloodPendantInfusable();
     }
 
     public static class Builder extends BrewBuilder {
@@ -38,7 +42,7 @@ public class BasicBrewJS extends Brew {
 
         @Override
         public Brew createObject() {
-            return new BasicBrewJS(this.cost, new MobEffectsHolder(this.holders));
+            return new BasicBrewJS(this);
         }
     }
 }
