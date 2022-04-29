@@ -81,6 +81,7 @@ class BotaniaRecipes {
     elven_trade(output: dev.latvian.mods.kubejs.item.ItemStackJS[], inputs: dev.latvian.mods.kubejs.item.ingredient.IngredientJS): com.prunoideae.recipe.ElvenTradeRecipeJS;
 
     pure_daisy(output: net.minecraft.world.level.block.Block, input: net.minecraft.world.level.block.Block): com.prunoideae.recipe.PureDaisyRecipeJS;
+    pure_daisy(output: net.minecraft.world.level.block.Block, input: net.minecraft.world.level.block.Block, time: int): com.prunoideae.recipe.PureDaisyRecipeJS;
 
     brew(output: net.minecraft.resources.ResourceLocation, inputs: dev.latvian.mods.kubejs.item.ingredient.IngredientJS[]): com.prunoideae.recipe.BrewRecipeJS;
 

@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.Block;
 public class PureDaisyRecipeJS extends BotaniaRecipeJS {
     public Block input = null;
     public Block output = null;
+    public int time = 150;
 
     @Override
     public void create(ListJS args) {
@@ -14,6 +15,8 @@ public class PureDaisyRecipeJS extends BotaniaRecipeJS {
         input = getBlockJS(args.get(1));
         outputItems.add(asItemStackJS(output));
         inputItems.add(asItemStackJS(input));
+        if (args.size() > 2)
+            time = (int) (double) args.get(2);
     }
 
     @Override
@@ -22,6 +25,8 @@ public class PureDaisyRecipeJS extends BotaniaRecipeJS {
         input = getBlockJS(json.get("input").getAsJsonObject().get("block").getAsString());
         outputItems.add(asItemStackJS(output));
         inputItems.add(asItemStackJS(input));
+        if (json.has("time"))
+            time = json.get("time").getAsInt();
     }
 
     @Override
@@ -37,5 +42,6 @@ public class PureDaisyRecipeJS extends BotaniaRecipeJS {
             inputBlock.addProperty("block", getBlockId(input));
             json.add("input", inputBlock);
         }
+        json.addProperty("time", time);
     }
 }
