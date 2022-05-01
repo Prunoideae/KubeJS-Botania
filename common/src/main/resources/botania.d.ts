@@ -50,7 +50,6 @@ class BrewBuilderBasic {
     effect(effect: net.minecraft.resources.ResourceLocation): com.prunoideae.custom.BrewBuilder;
     /**
      * @modify effect Internal.MobEffect_
-     * fuck
      */
     effect(effect: net.minecraft.resources.ResourceLocation, duration: int): com.prunoideae.custom.BrewBuilder;
     /**
