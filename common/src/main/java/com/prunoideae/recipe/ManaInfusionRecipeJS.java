@@ -7,7 +7,7 @@ import dev.latvian.mods.kubejs.util.UtilsJS;
 import net.minecraft.world.level.block.Block;
 
 public class ManaInfusionRecipeJS extends BotaniaRecipeJS {
-    private int mana = 2000;
+    public int mana = 2000;
     public Block block = null;
 
     @Override

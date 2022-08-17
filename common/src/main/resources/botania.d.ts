@@ -28,36 +28,6 @@ class BrewBuilderBase {
     effect(effect: net.minecraft.resources.ResourceLocation, duration: int, amplifier: int, ambient: boolean): com.prunoideae.custom.BrewBuilder;
 }
 
-/**
- * @target com.prunoideae.custom.BasicBrewJS$Builder
- */
-class BrewBuilderBasic {
-    /**
-     * @modify effect Internal.MobEffect_
-     */
-    effect(effect: net.minecraft.resources.ResourceLocation, duration: int, amplifier: int): com.prunoideae.custom.BrewBuilder;
-    /**
-     * @modify effect Internal.MobEffect_
-     */
-    effect(effect: net.minecraft.resources.ResourceLocation, duration: int, amplifier: int, ambient: boolean, visible: boolean): com.prunoideae.custom.BrewBuilder;
-    /**
-     * @modify effect Internal.MobEffect_
-     */
-    effect(effect: net.minecraft.resources.ResourceLocation, duration: int, amplifier: int, ambient: boolean, visible: boolean, showIcon: boolean): com.prunoideae.custom.BrewBuilder;
-    /**
-     * @modify effect Internal.MobEffect_
-     */
-    effect(effect: net.minecraft.resources.ResourceLocation): com.prunoideae.custom.BrewBuilder;
-    /**
-     * @modify effect Internal.MobEffect_
-     */
-    effect(effect: net.minecraft.resources.ResourceLocation, duration: int): com.prunoideae.custom.BrewBuilder;
-    /**
-     * @modify effect Internal.MobEffect_
-     */
-    effect(effect: net.minecraft.resources.ResourceLocation, duration: int, amplifier: int, ambient: boolean): com.prunoideae.custom.BrewBuilder;
-}
-
 class RecipeHolder {
     readonly botania: Document.BotaniaRecipes;
 }

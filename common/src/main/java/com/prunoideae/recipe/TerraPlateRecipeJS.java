@@ -3,7 +3,7 @@ package com.prunoideae.recipe;
 import dev.latvian.mods.kubejs.util.ListJS;
 
 public class TerraPlateRecipeJS extends BotaniaRecipeJS {
-    private int mana = 500000;
+    public int mana = 500000;
 
     @Override
     public void create(ListJS args) {

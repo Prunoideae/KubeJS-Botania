@@ -3,7 +3,7 @@ package com.prunoideae.recipe;
 import dev.latvian.mods.kubejs.util.ListJS;
 
 public class RuneAltarRecipeJS extends BotaniaRecipeJS {
-    private int mana = 5200;
+    public int mana = 5200;
 
     @Override
     public void create(ListJS args) {
