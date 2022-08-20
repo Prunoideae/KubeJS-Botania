@@ -77,13 +77,7 @@ public abstract class BrewBuilder extends BuilderBase<Brew> {
         this.getColor = (it) -> colorProvider.apply(it).getRgbJS();
         return this;
     }
-
-
-    @Override
-    public String getTranslationKeyGroup() {
-        return "kubejs";
-    }
-
+    
     @Override
     public RegistryObjectBuilderTypes<Brew> getRegistryType() {
         return BotaniaRegistryObjectBuilderTypes.BREW;
