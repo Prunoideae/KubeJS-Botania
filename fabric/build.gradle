@@ -26,7 +26,7 @@ dependencies {
     modApi "dev.architectury:architectury-fabric:${rootProject.architectury_version}"
     modImplementation "dev.latvian.mods:kubejs-fabric:${rootProject.kubejs_version}"
     modImplementation "dev.latvian.mods:rhino:${rootProject.rhino_version}"
-    modApi "vazkii.botania:Botania:1.18.2-431"
+    modImplementation "vazkii.botania:Botania:1.18.2-431-FABRIC"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
