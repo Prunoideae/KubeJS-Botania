@@ -1,0 +1,893 @@
+{
+    "properties": [
+        {
+            "type": "property:mod",
+            "mod": "botania"
+        },
+        {
+            "type": "property:mod",
+            "mod": "kubejs_botania"
+        }
+    ],
+    "classes": [
+        {
+            "type": "document:class",
+            "className": "com.prunoideae.probejs.DocumentedRecipes",
+            "fields": [
+                {
+                    "final": true,
+                    "type": "document:field",
+                    "name": "botania",
+                    "fieldType": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.probejs.BotaniaRecipes"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "document:class",
+            "methods": [
+                {
+                    "type": "document:method",
+                    "name": "mana_infusion",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "input",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.ManaInfusionRecipeJS"
+                    }
+                },
+                {
+                    "type": "document:method",
+                    "name": "mana_infusion",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "input",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "mana",
+                            "paramType": {
+                                "type": "type:primitive",
+                                "name": "number"
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.ManaInfusionRecipeJS"
+                    }
+                },
+                {
+                    "type": "document:method",
+                    "name": "mana_infusion",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "input",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "mana",
+                            "paramType": {
+                                "type": "type:primitive",
+                                "name": "number"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "catalyst",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.level.block.Block"
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.ManaInfusionRecipeJS"
+                    },
+                    "properties": [
+                        {
+                            "type": "property:comment",
+                            "lines": [
+                                "Default mana is 100."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "document:method",
+                    "name": "runic_altar",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "input",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.RuneAltarRecipeJS"
+                    },
+                    "properties": [
+                        {
+                            "type": "property:comment",
+                            "lines": [
+                                "Default mana is 5,200, same as Basic Runes."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "document:method",
+                    "name": "runic_altar",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "input",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "mana",
+                            "paramType": {
+                                "type": "type:primitive",
+                                "name": "number"
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.RuneAltarRecipeJS"
+                    }
+                },
+                {
+                    "type": "document:method",
+                    "name": "elven_trade",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:array",
+                                "component": {
+                                    "type": "type:class",
+                                    "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                                }
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "inputs",
+                            "paramType": {
+                                "type": "type:array",
+                                "component": {
+                                    "type": "type:class",
+                                    "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                }
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.ElvenTradeRecipeJS"
+                    }
+                },
+                {
+                    "type": "document:method",
+                    "name": "pure_daisy",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.level.block.Block"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "input",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.level.block.Block"
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.PureDaisyRecipeJS"
+                    },
+                    "properties": [
+                        {
+                            "type": "property:comment",
+                            "lines": [
+                                "Default time is 150."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "document:method",
+                    "name": "pure_daisy",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.level.block.Block"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "input",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.level.block.Block"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "time",
+                            "paramType": {
+                                "type": "type:primitive",
+                                "name": "number"
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.PureDaisyRecipeJS"
+                    }
+                },
+                {
+                    "type": "document:method",
+                    "name": "brew",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:primitive",
+                                "name": "Special.Brew"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "inputs",
+                            "paramType": {
+                                "type": "type:array",
+                                "component": {
+                                    "type": "type:class",
+                                    "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                }
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.BrewRecipeJS"
+                    }
+                },
+                {
+                    "type": "document:method",
+                    "name": "petal_apothecary",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "inputs",
+                            "paramType": {
+                                "type": "type:array",
+                                "component": {
+                                    "type": "type:class",
+                                    "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                }
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.PetalRecipeJS"
+                    }
+                },
+                {
+                    "type": "document:method",
+                    "name": "terra_plate",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "inputs",
+                            "paramType": {
+                                "type": "type:array",
+                                "component": {
+                                    "type": "type:class",
+                                    "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                }
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.TerraPlateRecipeJS"
+                    },
+                    "properties": [
+                        {
+                            "type": "property:comment",
+                            "lines": [
+                                "Default mana is 500,000, same as Terrasteel Ingot."
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "document:method",
+                    "name": "terra_plate",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "inputs",
+                            "paramType": {
+                                "type": "type:array",
+                                "component": {
+                                    "type": "type:class",
+                                    "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                }
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "mana",
+                            "paramType": {
+                                "type": "type:primitive",
+                                "name": "number"
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.TerraPlateRecipeJS"
+                    }
+                },
+                {
+                    "type": "document:method",
+                    "name": "orechid",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.level.block.Block"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "input",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.level.block.Block"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "weight",
+                            "paramType": {
+                                "type": "type:primitive",
+                                "name": "number"
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.OrechidRecipeJS"
+                    }
+                },
+                {
+                    "type": "document:method",
+                    "name": "orechid_ignem",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.level.block.Block"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "input",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.level.block.Block"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "weight",
+                            "paramType": {
+                                "type": "type:primitive",
+                                "name": "number"
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.OrechidRecipeJS"
+                    }
+                },
+                {
+                    "type": "document:method",
+                    "name": "marimorphosis",
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "output",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.level.block.Block"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "input",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.level.block.Block"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "weight",
+                            "paramType": {
+                                "type": "type:primitive",
+                                "name": "number"
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "biomes",
+                            "paramType": {
+                                "type": "type:array",
+                                "component": {
+                                    "type": "type:primitive",
+                                    "name": "Special.Biome"
+                                }
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "biomeBonus",
+                            "paramType": {
+                                "type": "type:primitive",
+                                "name": "number"
+                            }
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.recipe.OrechidRecipeJS"
+                    }
+                }
+            ],
+            "className": "com.prunoideae.probejs.BotaniaRecipes"
+        },
+        {
+            "type": "document:class",
+            "className": "com.prunoideae.custom.BrewBuilder",
+            "methods": [
+                {
+                    "type": "document:method",
+                    "name": "effect",
+                    "static": false,
+                    "abstract": false,
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "effect",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.resources.ResourceLocation"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "duration",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "int"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "amplifier",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "int"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "ambient",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "boolean"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "visible",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "boolean"
+                            },
+                            "varArg": false
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.custom.BrewBuilder"
+                    },
+                    "properties": [
+                        {
+                            "type": "property:modify",
+                            "index": 0,
+                            "newType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.effect.MobEffect"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "document:method",
+                    "name": "effect",
+                    "static": false,
+                    "abstract": false,
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "effect",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.resources.ResourceLocation"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "duration",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "int"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "amplifier",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "int"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "ambient",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "boolean"
+                            },
+                            "varArg": false
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.custom.BrewBuilder"
+                    },
+                    "properties": [
+                        {
+                            "type": "property:modify",
+                            "index": 0,
+                            "newType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.effect.MobEffect"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "document:method",
+                    "name": "effect",
+                    "static": false,
+                    "abstract": false,
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "effect",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.resources.ResourceLocation"
+                            },
+                            "varArg": false
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.custom.BrewBuilder"
+                    },
+                    "properties": [
+                        {
+                            "type": "property:modify",
+                            "index": 0,
+                            "newType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.effect.MobEffect"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "document:method",
+                    "name": "effect",
+                    "static": false,
+                    "abstract": false,
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "effect",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.resources.ResourceLocation"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "duration",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "int"
+                            },
+                            "varArg": false
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.custom.BrewBuilder"
+                    },
+                    "properties": [
+                        {
+                            "type": "property:modify",
+                            "index": 0,
+                            "newType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.effect.MobEffect"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "document:method",
+                    "name": "effect",
+                    "static": false,
+                    "abstract": false,
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "effect",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.resources.ResourceLocation"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "duration",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "int"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "amplifier",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "int"
+                            },
+                            "varArg": false
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.custom.BrewBuilder"
+                    },
+                    "properties": [
+                        {
+                            "type": "property:modify",
+                            "index": 0,
+                            "newType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.effect.MobEffect"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "document:method",
+                    "name": "effect",
+                    "static": false,
+                    "abstract": false,
+                    "params": [
+                        {
+                            "type": "property:param",
+                            "name": "effect",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.resources.ResourceLocation"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "duration",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "int"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "amplifier",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "int"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "ambient",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "boolean"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "visible",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "boolean"
+                            },
+                            "varArg": false
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "showIcon",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "boolean"
+                            },
+                            "varArg": false
+                        }
+                    ],
+                    "returns": {
+                        "type": "type:class",
+                        "name": "com.prunoideae.custom.BrewBuilder"
+                    },
+                    "properties": [
+                        {
+                            "type": "property:modify",
+                            "index": 0,
+                            "newType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.effect.MobEffect"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,1 +1,1 @@
-botania.d.ts
+botania.json
