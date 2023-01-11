@@ -4,7 +4,10 @@ import com.prunoideae.custom.BasicBrewJS;
 import com.prunoideae.custom.BotaniaRegistryObjectBuilderTypes;
 import com.prunoideae.recipe.*;
 import dev.latvian.mods.kubejs.KubeJSPlugin;
-import dev.latvian.mods.kubejs.recipe.RegisterRecipeHandlersEvent;
+import dev.latvian.mods.kubejs.recipe.RegisterRecipeTypesEvent;
+import dev.latvian.mods.kubejs.script.BindingsEvent;
+import vazkii.botania.api.corporea.CorporeaHelper;
+import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.api.recipe.*;
 
 public class KubeJSBotaniaPlugin extends KubeJSPlugin {
@@ -15,18 +18,23 @@ public class KubeJSBotaniaPlugin extends KubeJSPlugin {
     }
 
     @Override
-    public void addRecipes(RegisterRecipeHandlersEvent event) {
-        super.addRecipes(event);
-        event.register(IManaInfusionRecipe.TYPE_ID, ManaInfusionRecipeJS::new);
-        event.register(IElvenTradeRecipe.TYPE_ID, ElvenTradeRecipeJS::new);
-        event.register(IPureDaisyRecipe.TYPE_ID, PureDaisyRecipeJS::new);
-        event.register(IBrewRecipe.TYPE_ID, BrewRecipeJS::new);
-        event.register(IPetalRecipe.TYPE_ID, PetalRecipeJS::new);
-        event.register(IRuneAltarRecipe.TYPE_ID, RuneAltarRecipeJS::new);
-        event.register(ITerraPlateRecipe.TYPE_ID, TerraPlateRecipeJS::new);
-        event.register(IOrechidRecipe.TYPE_ID, OrechidRecipeJS::new);
-        event.register(IOrechidRecipe.IGNEM_TYPE_ID, OrechidRecipeJS::new);
-        event.register(IOrechidRecipe.MARIMORPHOSIS_TYPE_ID, OrechidRecipeJS::new);
+    public void registerRecipeTypes(RegisterRecipeTypesEvent event) {
+        event.register(ManaInfusionRecipe.TYPE_ID, ManaInfusionRecipeJS::new);
+        event.register(ElvenTradeRecipe.TYPE_ID, ElvenTradeRecipeJS::new);
+        event.register(PureDaisyRecipe.TYPE_ID, PureDaisyRecipeJS::new);
+        event.register(BotanicalBreweryRecipe.TYPE_ID, BrewRecipeJS::new);
+        event.register(PetalApothecaryRecipe.TYPE_ID, PetalRecipeJS::new);
+        event.register(RunicAltarRecipe.TYPE_ID, RuneAltarRecipeJS::new);
+        event.register(TerrestrialAgglomerationRecipe.TYPE_ID, TerraPlateRecipeJS::new);
+        event.register(OrechidRecipe.TYPE_ID, OrechidRecipeJS::new);
+        event.register(OrechidRecipe.IGNEM_TYPE_ID, OrechidRecipeJS::new);
+        event.register(OrechidRecipe.MARIMORPHOSIS_TYPE_ID, OrechidRecipeJS::new);
+    }
+
+    @Override
+    public void registerBindings(BindingsEvent event) {
+        event.add("ManaHandler", ManaItemHandler.instance());
+        event.add("CorporeaHelper", CorporeaHelper.instance());
     }
 
     @Override

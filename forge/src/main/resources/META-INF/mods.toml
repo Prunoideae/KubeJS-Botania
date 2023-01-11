@@ -16,30 +16,30 @@ KubeJS Botania integration
 [[dependencies.kubejs_botania]]
 modId = "forge"
 mandatory = true
-versionRange = "[40,)"
+versionRange = "[43,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.kubejs_botania]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.18.2,)"
+versionRange = "[1.19.2,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.kubejs_botania]]
 modId = "architectury"
 mandatory = true
-versionRange = "[4.2.50,)"
+versionRange = "[6.3.49,)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.kubejs_botania]]
 modId = "botania"
 mandatory = true
-versionRange = "[1.18.2-431,)"
+versionRange = "[1.19.2-436,)"
 
 [[dependencies.kubejs_botania]]
 modId = "kubejs"
 mandatory = true
-versionRange = "[1802.5.1-build.353,)"
+versionRange = "[1902.6.0-build.119,)"

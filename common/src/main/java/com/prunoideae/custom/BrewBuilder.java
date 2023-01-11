@@ -5,6 +5,7 @@ import dev.latvian.mods.kubejs.RegistryObjectBuilderTypes;
 import dev.latvian.mods.kubejs.item.ItemStackJS;
 import dev.latvian.mods.rhino.mod.util.color.Color;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
 import vazkii.botania.api.brew.Brew;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ public abstract class BrewBuilder extends BuilderBase<Brew> {
     public transient boolean noPendant;
     public transient boolean noIncense;
     public transient List<MobEffectHolder> holders;
-    public transient ToIntFunction<ItemStackJS> getColor;
+    public transient ToIntFunction<ItemStack> getColor;
 
     public BrewBuilder(ResourceLocation i) {
         super(i);
@@ -73,7 +74,7 @@ public abstract class BrewBuilder extends BuilderBase<Brew> {
         return this;
     }
 
-    public BrewBuilder color(Function<ItemStackJS, Color> colorProvider) {
+    public BrewBuilder color(Function<ItemStack, Color> colorProvider) {
         this.getColor = (it) -> colorProvider.apply(it).getRgbJS();
         return this;
     }

@@ -82,6 +82,13 @@ allprojects {
             name = "ParchmentMC"
             url = "https://maven.parchmentmc.net/"
         }
+        maven {
+            name = "Modrinth"
+            url = "https://api.modrinth.com/maven"
+            content {
+                includeGroup "maven.modrinth"
+            }
+        }
     }
 
     tasks.withType(JavaCompile) {

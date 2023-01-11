@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class BasicBrewJS extends Brew {
 
-    private final ToIntFunction<ItemStackJS> getColor;
+    private final ToIntFunction<ItemStack> getColor;
 
     private static class MobEffectsHolder {
         private final List<MobEffectHolder> holders;

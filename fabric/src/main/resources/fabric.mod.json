@@ -22,9 +22,9 @@
   ],
   "depends": {
     "fabric": "*",
-    "minecraft": ">=1.18.2",
-    "architectury": ">=4.2.50",
-    "kubejs": ">=1802.5.1-build.353",
-    "botania": ">=1.18.2-431"
+    "minecraft": ">=1.19.2",
+    "architectury": ">=6.3.49",
+    "kubejs": ">=1902.6.0-build.119",
+    "botania": ">=1.19.2-436"
   }
 }

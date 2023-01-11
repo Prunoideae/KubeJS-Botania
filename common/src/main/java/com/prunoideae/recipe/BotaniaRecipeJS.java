@@ -8,6 +8,10 @@ import dev.latvian.mods.kubejs.item.ItemStackJS;
 import dev.latvian.mods.kubejs.item.ingredient.IngredientJS;
 import dev.latvian.mods.kubejs.recipe.RecipeJS;
 import dev.latvian.mods.kubejs.util.UtilsJS;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 
 import java.util.List;
@@ -22,14 +26,20 @@ public abstract class BotaniaRecipeJS extends RecipeJS {
     }
 
     protected Block getBlockJS(Object o) {
-        return blockRegistry.get(UtilsJS.getMCID(o));
+        return blockRegistry.get(getAsRL(o));
+    }
+
+    protected ResourceLocation getAsRL(Object o) {
+        if (o instanceof ResourceLocation rl)
+            return rl;
+        return new ResourceLocation(o.toString());
     }
 
     protected String getBlockId(Block block) {
         return Objects.requireNonNull(blockRegistry.getId(block)).toString();
     }
 
-    protected JsonArray serializeIngredientList(List<IngredientJS> ingredients) {
+    protected JsonArray serializeIngredientList(List<Ingredient> ingredients) {
         var result = new JsonArray();
         for (var ingredient : ingredients) {
             result.add(ingredient.toJson());
@@ -37,7 +47,23 @@ public abstract class BotaniaRecipeJS extends RecipeJS {
         return result;
     }
 
-    protected ItemStackJS asItemStackJS(Block block){
+    protected ItemStack asItemStackJS(Block block) {
         return ItemStackJS.of(block.asItem());
+    }
+
+    protected Block getBlock(ItemStack itemStack) {
+        if (itemStack.getItem() instanceof BlockItem blockItem) {
+            return blockItem.getBlock();
+        }
+        return null;
+    }
+
+    protected Block getBlock(Ingredient ingredient){
+        for (ItemStack item : ingredient.getItems()) {
+            Block block = getBlock(item);
+            if (block != null)
+                return block;
+        }
+        return null;
     }
 }
