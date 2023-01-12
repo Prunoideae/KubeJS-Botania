@@ -14,7 +14,8 @@ public class KubeJSBotaniaPlugin extends KubeJSPlugin {
 
     @Override
     public void init() {
-        BotaniaRegistryObjectBuilderTypes.BREW.addType("basic", BasicBrewJS.Builder.class, BasicBrewJS.Builder::new);
+        // https://github.com/VazkiiMods/Botania/issues/4264
+        // BotaniaRegistryObjectBuilderTypes.BREW.addType("basic", BasicBrewJS.Builder.class, BasicBrewJS.Builder::new);
     }
 
     @Override
