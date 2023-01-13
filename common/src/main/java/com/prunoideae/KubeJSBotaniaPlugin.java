@@ -1,9 +1,9 @@
 package com.prunoideae;
 
-import com.prunoideae.custom.BasicBrewJS;
-import com.prunoideae.custom.BotaniaRegistryObjectBuilderTypes;
+import com.prunoideae.custom.item.RuneItemBuilder;
 import com.prunoideae.recipe.*;
 import dev.latvian.mods.kubejs.KubeJSPlugin;
+import dev.latvian.mods.kubejs.RegistryObjectBuilderTypes;
 import dev.latvian.mods.kubejs.recipe.RegisterRecipeTypesEvent;
 import dev.latvian.mods.kubejs.script.BindingsEvent;
 import vazkii.botania.api.corporea.CorporeaHelper;
@@ -16,6 +16,7 @@ public class KubeJSBotaniaPlugin extends KubeJSPlugin {
     public void init() {
         // https://github.com/VazkiiMods/Botania/issues/4264
         // BotaniaRegistryObjectBuilderTypes.BREW.addType("basic", BasicBrewJS.Builder.class, BasicBrewJS.Builder::new);
+        RegistryObjectBuilderTypes.ITEM.addType("botania:rune", RuneItemBuilder.class, RuneItemBuilder::new);
     }
 
     @Override

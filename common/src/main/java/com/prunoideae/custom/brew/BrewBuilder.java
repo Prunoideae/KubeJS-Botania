@@ -1,8 +1,7 @@
-package com.prunoideae.custom;
+package com.prunoideae.custom.brew;
 
 import dev.latvian.mods.kubejs.BuilderBase;
 import dev.latvian.mods.kubejs.RegistryObjectBuilderTypes;
-import dev.latvian.mods.kubejs.item.ItemStackJS;
 import dev.latvian.mods.rhino.mod.util.color.Color;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;

@@ -37,7 +37,7 @@
                             "name": "output",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                                "name": "net.minecraft.world.item.ItemStack"
                             }
                         },
                         {
@@ -45,7 +45,7 @@
                             "name": "input",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                "name": "net.minecraft.world.item.crafting.Ingredient"
                             }
                         }
                     ],
@@ -63,7 +63,7 @@
                             "name": "output",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                                "name": "net.minecraft.world.item.ItemStack"
                             }
                         },
                         {
@@ -71,7 +71,7 @@
                             "name": "input",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                "name": "net.minecraft.world.item.crafting.Ingredient"
                             }
                         },
                         {
@@ -97,7 +97,7 @@
                             "name": "output",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                                "name": "net.minecraft.world.item.ItemStack"
                             }
                         },
                         {
@@ -105,7 +105,7 @@
                             "name": "input",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                "name": "net.minecraft.world.item.crafting.Ingredient"
                             }
                         },
                         {
@@ -147,7 +147,7 @@
                             "name": "output",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                                "name": "net.minecraft.world.item.ItemStack"
                             }
                         },
                         {
@@ -155,7 +155,7 @@
                             "name": "input",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                "name": "net.minecraft.world.item.crafting.Ingredient"
                             }
                         }
                     ],
@@ -181,7 +181,7 @@
                             "name": "output",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                                "name": "net.minecraft.world.item.ItemStack"
                             }
                         },
                         {
@@ -189,7 +189,7 @@
                             "name": "input",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                "name": "net.minecraft.world.item.crafting.Ingredient"
                             }
                         },
                         {
@@ -217,7 +217,7 @@
                                 "type": "type:array",
                                 "component": {
                                     "type": "type:class",
-                                    "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                                    "name": "net.minecraft.world.item.ItemStack"
                                 }
                             }
                         },
@@ -228,7 +228,7 @@
                                 "type": "type:array",
                                 "component": {
                                     "type": "type:class",
-                                    "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                    "name": "net.minecraft.world.item.crafting.Ingredient"
                                 }
                             }
                         }
@@ -325,7 +325,7 @@
                                 "type": "type:array",
                                 "component": {
                                     "type": "type:class",
-                                    "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                    "name": "net.minecraft.world.item.crafting.Ingredient"
                                 }
                             }
                         }
@@ -344,7 +344,7 @@
                             "name": "output",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                                "name": "net.minecraft.world.item.ItemStack"
                             }
                         },
                         {
@@ -354,7 +354,7 @@
                                 "type": "type:array",
                                 "component": {
                                     "type": "type:class",
-                                    "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                    "name": "net.minecraft.world.item.crafting.Ingredient"
                                 }
                             }
                         }
@@ -373,7 +373,7 @@
                             "name": "output",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                                "name": "net.minecraft.world.item.ItemStack"
                             }
                         },
                         {
@@ -383,7 +383,7 @@
                                 "type": "type:array",
                                 "component": {
                                     "type": "type:class",
-                                    "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                    "name": "net.minecraft.world.item.crafting.Ingredient"
                                 }
                             }
                         }
@@ -410,7 +410,7 @@
                             "name": "output",
                             "paramType": {
                                 "type": "type:class",
-                                "name": "dev.latvian.mods.kubejs.item.ItemStackJS"
+                                "name": "net.minecraft.world.item.ItemStack"
                             }
                         },
                         {
@@ -420,7 +420,7 @@
                                 "type": "type:array",
                                 "component": {
                                     "type": "type:class",
-                                    "name": "dev.latvian.mods.kubejs.item.ingredient.IngredientJS"
+                                    "name": "net.minecraft.world.item.crafting.Ingredient"
                                 }
                             }
                         },

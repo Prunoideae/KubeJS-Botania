@@ -1,4 +1,4 @@
-package com.prunoideae.custom;
+package com.prunoideae.custom.brew;
 
 import dev.latvian.mods.kubejs.RegistryObjectBuilderTypes;
 import dev.latvian.mods.kubejs.util.UtilsJS;
