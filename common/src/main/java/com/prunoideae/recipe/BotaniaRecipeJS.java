@@ -5,9 +5,7 @@ import com.google.gson.JsonObject;
 import dev.architectury.registry.registries.Registrar;
 import dev.latvian.mods.kubejs.KubeJSRegistries;
 import dev.latvian.mods.kubejs.item.ItemStackJS;
-import dev.latvian.mods.kubejs.item.ingredient.IngredientJS;
 import dev.latvian.mods.kubejs.recipe.RecipeJS;
-import dev.latvian.mods.kubejs.util.UtilsJS;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.ItemStack;
@@ -65,25 +63,5 @@ public abstract class BotaniaRecipeJS extends RecipeJS {
                 return block;
         }
         return null;
-    }
-
-    protected String deserializeBlockInput(JsonObject input) {
-        return switch (input.get("type").getAsString()) {
-            case "tag" -> "#" + input.get("tag").getAsString();
-            case "block" -> input.get("block").getAsString();
-            default -> null;
-        };
-    }
-
-    protected JsonObject serializeBlockInput(String input) {
-        var output = new JsonObject();
-        if (input.startsWith("#")) {
-            output.addProperty("type", "tag");
-            output.addProperty("tag", input.substring(1));
-        } else {
-            output.addProperty("type", "block");
-            output.addProperty("block", input);
-        }
-        return output;
     }
 }
