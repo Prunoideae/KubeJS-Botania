@@ -14,7 +14,7 @@ import java.util.List;
 public class RuneAltarRecipeJS extends BotaniaRecipeJS {
     public int mana = 500000;
     private ItemStack output = null;
-    private List<Ingredient> inputs = new ArrayList<>();
+    private final List<Ingredient> inputs = new ArrayList<>();
 
     @Override
     public void create(RecipeArguments args) {
@@ -27,7 +27,7 @@ public class RuneAltarRecipeJS extends BotaniaRecipeJS {
 
     @Override
     public void deserialize() {
-        output = parseItemOutput(json.get("result"));
+        output = parseItemOutput(json.get("output"));
         inputs.addAll(parseItemInputList(json.get("ingredients")));
         mana = json.get("mana").getAsInt();
     }
@@ -35,7 +35,7 @@ public class RuneAltarRecipeJS extends BotaniaRecipeJS {
     @Override
     public void serialize() {
         if (serializeOutputs)
-            json.add("result", output.kjs$toJson());
+            json.add("output", itemToJson(output));
         if (serializeInputs)
             json.add("ingredients", serializeIngredientList(inputs));
         json.addProperty("mana", mana);

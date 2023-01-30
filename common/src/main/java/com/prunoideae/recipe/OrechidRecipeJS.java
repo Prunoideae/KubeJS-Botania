@@ -2,6 +2,8 @@ package com.prunoideae.recipe;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import dev.latvian.mods.kubejs.KubeJS;
+import dev.latvian.mods.kubejs.item.ingredient.IngredientJS;
 import dev.latvian.mods.kubejs.recipe.IngredientMatch;
 import dev.latvian.mods.kubejs.recipe.ItemInputTransformer;
 import dev.latvian.mods.kubejs.recipe.ItemOutputTransformer;
@@ -9,14 +11,13 @@ import dev.latvian.mods.kubejs.recipe.RecipeArguments;
 import dev.latvian.mods.kubejs.util.ListJS;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.block.Block;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Set;
 
 public class OrechidRecipeJS extends BotaniaRecipeJS {
-    private Ingredient input;
+    private String input;
     private ItemStack output;
     private int weight = 100;
     private final List<String> biomes = new ArrayList<>();
@@ -25,7 +26,7 @@ public class OrechidRecipeJS extends BotaniaRecipeJS {
     @Override
     public void create(RecipeArguments args) {
         output = parseItemOutput(args.get(0));
-        input = parseItemInput(args.get(1));
+        input = (String) args.get(1);
         if (args.size() > 2)
             weight = (int) ((double) args.get(2));
         if (args.size() > 3)
@@ -38,7 +39,7 @@ public class OrechidRecipeJS extends BotaniaRecipeJS {
     @Override
     public void deserialize() {
         output = parseItemOutput(json.get("output").getAsJsonObject().get("block").getAsString());
-        input = parseItemInput(json.get("input").getAsString());
+        input = deserializeBlockInput(json.get("input").getAsJsonObject());
 
         weight = json.get("weight").getAsInt();
         if (json.has("biomes"))
@@ -58,7 +59,7 @@ public class OrechidRecipeJS extends BotaniaRecipeJS {
             json.add("output", outputJS);
         }
         if (serializeInputs) {
-            json.addProperty("input", getBlockId(getBlock(input)));
+            json.add("input", serializeBlockInput(input));
         }
         json.addProperty("weight", weight);
         if (!biomes.isEmpty()) {
@@ -73,13 +74,18 @@ public class OrechidRecipeJS extends BotaniaRecipeJS {
 
     @Override
     public boolean hasInput(IngredientMatch match) {
-        return match.contains(input);
+        return match.contains(IngredientJS.of(input));
     }
 
     @Override
     public boolean replaceInput(IngredientMatch match, Ingredient with, ItemInputTransformer transformer) {
-        if (match.contains(input)) {
-            input = transformer.transform(this, match, input, with);
+        if (match.contains(IngredientJS.of(input))) {
+            Set<String> transformed = transformer.transform(this, match, IngredientJS.of(input), with).kjs$getItemIds();
+            if (transformed.size() > 1)
+                KubeJS.LOGGER.warn("Ingredient has more than one item! This is not allowed in Orechid recipes, using the first item as default.");
+            if (transformed.isEmpty())
+                KubeJS.LOGGER.warn("Ingredient has no item inside! This is not allowed in Orechid recipes, not replacing items.");
+            input = transformed.stream().findFirst().orElse(null);
             return true;
         }
         return false;
@@ -98,4 +104,6 @@ public class OrechidRecipeJS extends BotaniaRecipeJS {
         }
         return false;
     }
+
+
 }

@@ -246,16 +246,25 @@
                             "type": "property:param",
                             "name": "output",
                             "paramType": {
-                                "type": "type:class",
-                                "name": "net.minecraft.world.level.block.Block"
+                                "type": "type:primitive",
+                                "name": "Special.Block"
                             }
                         },
                         {
                             "type": "property:param",
                             "name": "input",
                             "paramType": {
-                                "type": "type:class",
-                                "name": "net.minecraft.world.level.block.Block"
+                                "type": "type:union",
+                                "types": [
+                                    {
+                                        "type": "type:class",
+                                        "name": "net.minecraft.world.level.block.Block"
+                                    },
+                                    {
+                                        "type": "type:primitive",
+                                        "name": "Special.BlockTag"
+                                    }
+                                ]
                             }
                         }
                     ],
@@ -280,16 +289,25 @@
                             "type": "property:param",
                             "name": "output",
                             "paramType": {
-                                "type": "type:class",
-                                "name": "net.minecraft.world.level.block.Block"
+                                "type": "type:primitive",
+                                "name": "Special.Block"
                             }
                         },
                         {
                             "type": "property:param",
                             "name": "input",
                             "paramType": {
-                                "type": "type:class",
-                                "name": "net.minecraft.world.level.block.Block"
+                                "type": "type:union",
+                                "types": [
+                                    {
+                                        "type": "type:class",
+                                        "name": "net.minecraft.world.level.block.Block"
+                                    },
+                                    {
+                                        "type": "type:primitive",
+                                        "name": "Special.BlockTag"
+                                    }
+                                ]
                             }
                         },
                         {
@@ -446,16 +464,25 @@
                             "type": "property:param",
                             "name": "output",
                             "paramType": {
-                                "type": "type:class",
-                                "name": "net.minecraft.world.level.block.Block"
+                                "type": "type:primitive",
+                                "name": "Special.Block"
                             }
                         },
                         {
                             "type": "property:param",
                             "name": "input",
                             "paramType": {
-                                "type": "type:class",
-                                "name": "net.minecraft.world.level.block.Block"
+                                "type": "type:union",
+                                "types": [
+                                    {
+                                        "type": "type:class",
+                                        "name": "net.minecraft.world.level.block.Block"
+                                    },
+                                    {
+                                        "type": "type:primitive",
+                                        "name": "Special.BlockTag"
+                                    }
+                                ]
                             }
                         },
                         {
@@ -480,16 +507,25 @@
                             "type": "property:param",
                             "name": "output",
                             "paramType": {
-                                "type": "type:class",
-                                "name": "net.minecraft.world.level.block.Block"
+                                "type": "type:primitive",
+                                "name": "Special.Block"
                             }
                         },
                         {
                             "type": "property:param",
                             "name": "input",
                             "paramType": {
-                                "type": "type:class",
-                                "name": "net.minecraft.world.level.block.Block"
+                                "type": "type:union",
+                                "types": [
+                                    {
+                                        "type": "type:class",
+                                        "name": "net.minecraft.world.level.block.Block"
+                                    },
+                                    {
+                                        "type": "type:primitive",
+                                        "name": "Special.BlockTag"
+                                    }
+                                ]
                             }
                         },
                         {
@@ -514,16 +550,25 @@
                             "type": "property:param",
                             "name": "output",
                             "paramType": {
-                                "type": "type:class",
-                                "name": "net.minecraft.world.level.block.Block"
+                                "type": "type:primitive",
+                                "name": "Special.Block"
                             }
                         },
                         {
                             "type": "property:param",
                             "name": "input",
                             "paramType": {
-                                "type": "type:class",
-                                "name": "net.minecraft.world.level.block.Block"
+                                "type": "type:union",
+                                "types": [
+                                    {
+                                        "type": "type:class",
+                                        "name": "net.minecraft.world.level.block.Block"
+                                    },
+                                    {
+                                        "type": "type:primitive",
+                                        "name": "Special.BlockTag"
+                                    }
+                                ]
                             }
                         },
                         {

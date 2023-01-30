@@ -13,8 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ElvenTradeRecipeJS extends BotaniaRecipeJS {
-    private List<ItemStack> outputItems = new ArrayList<>();
-    private List<Ingredient> inputItems = new ArrayList<>();
+    private final List<ItemStack> outputItems = new ArrayList<>();
+    private final List<Ingredient> inputItems = new ArrayList<>();
 
     @Override
     public void create(RecipeArguments args) {
@@ -33,7 +33,7 @@ public class ElvenTradeRecipeJS extends BotaniaRecipeJS {
         if (serializeOutputs) {
             var outputs = new JsonArray();
             for (var output : outputItems) {
-                outputs.add(output.kjs$toJson());
+                outputs.add(this.itemToJson(output));
             }
             json.add("output", outputs);
         }

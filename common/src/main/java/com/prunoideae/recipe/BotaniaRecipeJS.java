@@ -66,4 +66,24 @@ public abstract class BotaniaRecipeJS extends RecipeJS {
         }
         return null;
     }
+
+    protected String deserializeBlockInput(JsonObject input) {
+        return switch (input.get("type").getAsString()) {
+            case "tag" -> "#" + input.get("tag").getAsString();
+            case "block" -> input.get("block").getAsString();
+            default -> null;
+        };
+    }
+
+    protected JsonObject serializeBlockInput(String input) {
+        var output = new JsonObject();
+        if (input.startsWith("#")) {
+            output.addProperty("type", "tag");
+            output.addProperty("tag", input.substring(1));
+        } else {
+            output.addProperty("type", "block");
+            output.addProperty("block", input);
+        }
+        return output;
+    }
 }
