@@ -262,7 +262,7 @@
                                     },
                                     {
                                         "type": "type:primitive",
-                                        "name": "Special.BlockTag"
+                                        "name": "`#${Special.BlockTag}`"
                                     }
                                 ]
                             }
@@ -305,7 +305,7 @@
                                     },
                                     {
                                         "type": "type:primitive",
-                                        "name": "Special.BlockTag"
+                                        "name": "`#${Special.BlockTag}`"
                                     }
                                 ]
                             }
@@ -374,6 +374,14 @@
                                     "type": "type:class",
                                     "name": "net.minecraft.world.item.crafting.Ingredient"
                                 }
+                            }
+                        },
+                        {
+                            "type": "property:param",
+                            "name": "reagent?",
+                            "paramType": {
+                                "type": "type:class",
+                                "name": "net.minecraft.world.item.crafting.Ingredient"
                             }
                         }
                     ],
@@ -480,7 +488,7 @@
                                     },
                                     {
                                         "type": "type:primitive",
-                                        "name": "Special.BlockTag"
+                                        "name": "`#${Special.BlockTag}`"
                                     }
                                 ]
                             }
@@ -523,7 +531,7 @@
                                     },
                                     {
                                         "type": "type:primitive",
-                                        "name": "Special.BlockTag"
+                                        "name": "`#${Special.BlockTag}`"
                                     }
                                 ]
                             }
@@ -566,7 +574,7 @@
                                     },
                                     {
                                         "type": "type:primitive",
-                                        "name": "Special.BlockTag"
+                                        "name": "`#${Special.BlockTag}`"
                                     }
                                 ]
                             }
