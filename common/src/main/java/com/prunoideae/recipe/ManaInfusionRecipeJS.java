@@ -39,7 +39,7 @@ public class ManaInfusionRecipeJS extends BotaniaRecipeJS {
     @Override
     public void serialize() {
         if (serializeOutputs) {
-            json.add("output", output.kjs$toJson());
+            json.add("output", itemToJson(output));
         }
         if (serializeInputs) {
             json.add("input", input.toJson());

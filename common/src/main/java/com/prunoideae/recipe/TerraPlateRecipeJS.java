@@ -34,7 +34,7 @@ public class TerraPlateRecipeJS extends BotaniaRecipeJS {
     @Override
     public void serialize() {
         if (serializeOutputs)
-            json.add("result", output.kjs$toJson());
+            json.add("result", itemToJson(output));
         if (serializeInputs)
             json.add("ingredients", serializeIngredientList(inputs));
         json.addProperty("mana", mana);

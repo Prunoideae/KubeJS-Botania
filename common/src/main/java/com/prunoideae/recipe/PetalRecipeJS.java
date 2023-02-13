@@ -36,7 +36,7 @@ public class PetalRecipeJS extends BotaniaRecipeJS {
     @Override
     public void serialize() {
         if (serializeOutputs)
-            json.add("output", output.kjs$toJson());
+            json.add("output", itemToJson(output));
         if (serializeInputs)
             json.add("ingredients", serializeIngredientList(inputs));
         if (reagent != null)
