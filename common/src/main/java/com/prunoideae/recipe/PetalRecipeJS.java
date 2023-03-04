@@ -1,6 +1,7 @@
 package com.prunoideae.recipe;
 
 import com.google.gson.JsonObject;
+import dev.latvian.mods.kubejs.item.ingredient.IngredientJS;
 import dev.latvian.mods.kubejs.recipe.IngredientMatch;
 import dev.latvian.mods.kubejs.recipe.ItemInputTransformer;
 import dev.latvian.mods.kubejs.recipe.ItemOutputTransformer;
@@ -15,7 +16,7 @@ public class PetalRecipeJS extends BotaniaRecipeJS {
 
     private ItemStack output = null;
     private final List<Ingredient> inputs = new ArrayList<>();
-    private Ingredient reagent = null;
+    private Ingredient reagent = IngredientJS.of("#botania:seed_apothecary_reagent");
 
     @Override
     public void create(RecipeArguments args) {
@@ -29,23 +30,18 @@ public class PetalRecipeJS extends BotaniaRecipeJS {
     public void deserialize() {
         output = parseItemOutput(json.get("output"));
         inputs.addAll(parseItemInputList(json.get("ingredients")));
-        if (json.has("reagent"))
-            reagent = parseItemInput(json.get("reagent"));
+        reagent = parseItemInput(json.get("reagent"));
     }
 
     @Override
     public void serialize() {
         if (serializeOutputs)
             json.add("output", itemToJson(output));
-        if (serializeInputs)
+        if (serializeInputs) {
             json.add("ingredients", serializeIngredientList(inputs));
-        if (reagent != null)
             json.add("reagent", reagent.toJson());
-        else {
-            var jsonObject = new JsonObject();
-            jsonObject.addProperty("tag", "botania:seed_apothecary_reagent");
-            jsonObject.add("reagent", jsonObject);
         }
+
     }
 
     @Override
