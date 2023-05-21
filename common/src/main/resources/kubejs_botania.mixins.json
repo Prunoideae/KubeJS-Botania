@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.prunoideae.mixin",
+  "package": "com.prunoideae.mixins",
   "compatibilityLevel": "JAVA_16",
   "client": [
   ],

@@ -1,0 +1,13 @@
+{
+    "required": true,
+    "package": "com.prunoideae.mixins.fabric",
+    "compatibilityLevel": "JAVA_16",
+    "client": [
+    ],
+    "mixins": [
+        "FabricBrewRegistryMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

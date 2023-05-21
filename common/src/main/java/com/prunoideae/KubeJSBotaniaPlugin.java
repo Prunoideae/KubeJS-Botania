@@ -1,11 +1,14 @@
 package com.prunoideae;
 
+import com.prunoideae.custom.brew.BasicBrewJS;
+import com.prunoideae.custom.brew.BotaniaRegistryObjectBuilderTypes;
 import com.prunoideae.custom.item.RuneItemBuilder;
 import com.prunoideae.recipe.*;
 import dev.latvian.mods.kubejs.KubeJSPlugin;
 import dev.latvian.mods.kubejs.RegistryObjectBuilderTypes;
 import dev.latvian.mods.kubejs.recipe.RegisterRecipeTypesEvent;
 import dev.latvian.mods.kubejs.script.BindingsEvent;
+import net.minecraft.resources.ResourceLocation;
 import vazkii.botania.api.corporea.CorporeaHelper;
 import vazkii.botania.api.mana.ManaItemHandler;
 import vazkii.botania.api.recipe.*;
@@ -14,8 +17,7 @@ public class KubeJSBotaniaPlugin extends KubeJSPlugin {
 
     @Override
     public void init() {
-        // https://github.com/VazkiiMods/Botania/issues/4264
-        // BotaniaRegistryObjectBuilderTypes.BREW.addType("basic", BasicBrewJS.Builder.class, BasicBrewJS.Builder::new);
+        BotaniaRegistryObjectBuilderTypes.BREW.addType("basic", BasicBrewJS.Builder.class, BasicBrewJS.Builder::new);
         RegistryObjectBuilderTypes.ITEM.addType("botania:rune", RuneItemBuilder.class, RuneItemBuilder::new);
     }
 
@@ -31,6 +33,7 @@ public class KubeJSBotaniaPlugin extends KubeJSPlugin {
         event.register(OrechidRecipe.TYPE_ID, OrechidRecipeJS::new);
         event.register(OrechidRecipe.IGNEM_TYPE_ID, OrechidRecipeJS::new);
         event.register(OrechidRecipe.MARIMORPHOSIS_TYPE_ID, OrechidRecipeJS::new);
+        event.registerShapeless(new ResourceLocation("botania:fertilizer_dye"));
     }
 
     @Override
