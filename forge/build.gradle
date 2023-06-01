@@ -31,7 +31,7 @@ dependencies {
 	modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 	modImplementation "dev.latvian.mods:kubejs-forge:${rootProject.kubejs_version}"
 	modImplementation "dev.latvian.mods:rhino-forge:${rootProject.rhino_version}"
-	modImplementation "vazkii.botania:Botania:1.19.2-436-FORGE"
+	modImplementation "vazkii.botania:Botania:${rootProject.minecraft_version}-${rootProject.botania_version}-FORGE"
 
 	common(project(path: ":common", configuration: "namedElements")) { transitive false }
 	shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }

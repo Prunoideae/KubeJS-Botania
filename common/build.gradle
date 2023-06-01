@@ -14,7 +14,7 @@ dependencies {
     modApi "dev.architectury:architectury:${rootProject.architectury_version}"
     modImplementation "dev.latvian.mods:kubejs-fabric:${rootProject.kubejs_version}"
     modImplementation "dev.latvian.mods:rhino:${rootProject.rhino_version}"
-    modImplementation "vazkii.botania:Botania-xplat:1.19.2-436"
+    modImplementation "vazkii.botania:Botania-xplat:${rootProject.minecraft_version}-${rootProject.botania_version}"
 }
 
 publishing {

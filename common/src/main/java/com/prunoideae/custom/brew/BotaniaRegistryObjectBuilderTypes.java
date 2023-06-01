@@ -14,6 +14,6 @@ public class BotaniaRegistryObjectBuilderTypes {
     public static RegistryObjectBuilderTypes<Brew> BREW;
 
     static {
-        BREW = RegistryObjectBuilderTypes.add((ResourceKey<Registry<Brew>>) XplatAbstractions.INSTANCE.createBrewRegistry().key(), Brew.class);
+        BREW = RegistryObjectBuilderTypes.add((ResourceKey<Registry<Brew>>) XplatAbstractions.INSTANCE.getOrCreateBrewRegistry().key(), Brew.class);
     }
 }

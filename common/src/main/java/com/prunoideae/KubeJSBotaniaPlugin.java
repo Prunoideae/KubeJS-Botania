@@ -3,15 +3,13 @@ package com.prunoideae;
 import com.prunoideae.custom.brew.BasicBrewJS;
 import com.prunoideae.custom.brew.BotaniaRegistryObjectBuilderTypes;
 import com.prunoideae.custom.item.RuneItemBuilder;
-import com.prunoideae.recipe.*;
+import com.prunoideae.schema.*;
 import dev.latvian.mods.kubejs.KubeJSPlugin;
 import dev.latvian.mods.kubejs.RegistryObjectBuilderTypes;
-import dev.latvian.mods.kubejs.recipe.RegisterRecipeTypesEvent;
+import dev.latvian.mods.kubejs.recipe.schema.RegisterRecipeSchemasEvent;
 import dev.latvian.mods.kubejs.script.BindingsEvent;
-import net.minecraft.resources.ResourceLocation;
 import vazkii.botania.api.corporea.CorporeaHelper;
 import vazkii.botania.api.mana.ManaItemHandler;
-import vazkii.botania.api.recipe.*;
 
 public class KubeJSBotaniaPlugin extends KubeJSPlugin {
 
@@ -22,19 +20,21 @@ public class KubeJSBotaniaPlugin extends KubeJSPlugin {
     }
 
     @Override
-    public void registerRecipeTypes(RegisterRecipeTypesEvent event) {
-        event.register(ManaInfusionRecipe.TYPE_ID, ManaInfusionRecipeJS::new);
-        event.register(ElvenTradeRecipe.TYPE_ID, ElvenTradeRecipeJS::new);
-        event.register(PureDaisyRecipe.TYPE_ID, PureDaisyRecipeJS::new);
-        event.register(BotanicalBreweryRecipe.TYPE_ID, BrewRecipeJS::new);
-        event.register(PetalApothecaryRecipe.TYPE_ID, PetalRecipeJS::new);
-        event.register(RunicAltarRecipe.TYPE_ID, RuneAltarRecipeJS::new);
-        event.register(TerrestrialAgglomerationRecipe.TYPE_ID, TerraPlateRecipeJS::new);
-        event.register(OrechidRecipe.TYPE_ID, OrechidRecipeJS::new);
-        event.register(OrechidRecipe.IGNEM_TYPE_ID, OrechidRecipeJS::new);
-        event.register(OrechidRecipe.MARIMORPHOSIS_TYPE_ID, OrechidRecipeJS::new);
-        event.registerShapeless(new ResourceLocation("botania:fertilizer_dye"));
+    public void registerRecipeSchemas(RegisterRecipeSchemasEvent event) {
+        event.namespace("botania")
+                .register("terra_plate", TerraPlateSchema.SCHEMA)
+                .register("mana_infusion", ManaInfusionSchema.SCHEMA)
+                .register("pure_daisy", PureDaisySchema.SCHEMA)
+                .register("elven_trade", ElvenTradeSchema.SCHEMA)
+                .register("runic_altar", RunicAltarSchema.SCHEMA)
+                .register("brew", BrewSchema.SCHEMA)
+                .register("petal_apothecary", PetalSchema.SCHEMA)
+                .register("orechid", OrechidSchema.SCHEMA)
+                .register("orechid_ignem", OrechidSchema.SCHEMA)
+                .register("marimorphosis", OrechidSchema.SCHEMA_BIOME)
+        ;
     }
+
 
     @Override
     public void registerBindings(BindingsEvent event) {
