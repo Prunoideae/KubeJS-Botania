@@ -1,6 +1,6 @@
 package com.prunoideae.custom.brew;
 
-import dev.latvian.mods.kubejs.KubeJSRegistries;
+import dev.latvian.mods.kubejs.registry.KubeJSRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 

@@ -7,8 +7,6 @@ import dev.latvian.mods.kubejs.recipe.component.ItemComponents;
 import dev.latvian.mods.kubejs.recipe.component.NumberComponent;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
 
-import java.util.List;
-
 public interface TerraPlateSchema {
     RecipeKey<OutputItem> RESULT = ItemComponents.OUTPUT.key("result");
     RecipeKey<InputItem[]> INGREDIENTS = ItemComponents.INPUT_ARRAY.key("ingredients");
