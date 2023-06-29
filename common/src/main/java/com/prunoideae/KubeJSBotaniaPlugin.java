@@ -42,10 +42,4 @@ public class KubeJSBotaniaPlugin extends KubeJSPlugin {
         event.add("ManaHandler", ManaItemHandler.instance());
         event.add("CorporeaHelper", CorporeaHelper.instance());
     }
-
-    @Override
-    public void afterInit() {
-        //Brew registration
-        super.afterInit();
-    }
 }
