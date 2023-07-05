@@ -5,7 +5,7 @@ import dev.latvian.mods.kubejs.recipe.component.ItemComponents;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
 
 public interface ElvenTradeSchema {
-    RecipeKey<?> OUTPUT = ItemComponents.OUTPUT.key("output");
+    RecipeKey<?> OUTPUT = ItemComponents.OUTPUT_ARRAY.key("output");
     RecipeKey<?> INGREDIENTS = ItemComponents.INPUT_ARRAY.key("ingredients");
 
     RecipeSchema SCHEMA = new RecipeSchema(OUTPUT, INGREDIENTS);
