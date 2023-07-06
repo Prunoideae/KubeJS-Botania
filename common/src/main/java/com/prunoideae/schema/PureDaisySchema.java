@@ -1,7 +1,6 @@
 package com.prunoideae.schema;
 
 import dev.latvian.mods.kubejs.recipe.RecipeKey;
-import dev.latvian.mods.kubejs.recipe.component.BlockStateComponent;
 import dev.latvian.mods.kubejs.recipe.component.TimeComponent;
 import dev.latvian.mods.kubejs.recipe.schema.RecipeSchema;
 
