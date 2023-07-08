@@ -13,7 +13,7 @@ public interface ManaInfusionSchema {
     RecipeKey<OutputItem> RESULT = ItemComponents.OUTPUT.key("output");
     RecipeKey<InputItem> INPUT = ItemComponents.INPUT.key("input");
     RecipeKey<Integer> MANA = NumberComponent.INT.key("mana").optional(2000);
-    RecipeKey<BlockStatePredicate> CATALYST = BotaniaSchema.BLOCK_INPUT.key("catalyst").optional(BlockStatePredicate.Simple.ALL);
+    RecipeKey<BlockStatePredicate> CATALYST = BotaniaSchema.BLOCK_INPUT.key("catalyst").defaultOptional();
 
     RecipeSchema SCHEMA = new RecipeSchema(RESULT, INPUT, MANA, CATALYST);
 }
