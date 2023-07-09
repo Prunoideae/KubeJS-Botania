@@ -2,57 +2,70 @@ package com.prunoideae.schema;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import dev.latvian.mods.kubejs.block.state.BlockStatePredicate;
+import com.mojang.datafixers.util.Either;
 import dev.latvian.mods.kubejs.recipe.RecipeJS;
+import dev.latvian.mods.kubejs.recipe.component.BlockComponent;
 import dev.latvian.mods.kubejs.recipe.component.ComponentRole;
 import dev.latvian.mods.kubejs.recipe.component.RecipeComponent;
+import dev.latvian.mods.kubejs.recipe.component.TagKeyComponent;
 import dev.latvian.mods.kubejs.typings.desc.DescriptionContext;
 import dev.latvian.mods.kubejs.typings.desc.TypeDescJS;
 import dev.latvian.mods.kubejs.util.UtilsJS;
 import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 import vazkii.botania.common.crafting.StateIngredientHelper;
 
 public interface BotaniaSchema {
-    RecipeComponent<BlockStatePredicate> BLOCK_INPUT = new RecipeComponent<>() {
-        @Override
-        public String componentType() {
-            return "string";
-        }
-
+    RecipeComponent<Either<Block, TagKey<Block>>> BLOCK_INPUT = new RecipeComponent<Either<Block, TagKey<Block>>>() {
         @Override
         public Class<?> componentClass() {
-            return BlockStatePredicate.class;
+            return Block.class;
         }
 
         @Override
-        public @Nullable JsonElement write(RecipeJS recipe, BlockStatePredicate value) {
-            var output = new JsonObject();
-            if (value instanceof BlockStatePredicate.TagMatch tagMatch) {
-                output.addProperty("type", "tag");
-                output.addProperty("tag", tagMatch.tag().location().toString());
-            } else if (value instanceof BlockStatePredicate.BlockMatch blockMatch) {
-                output.addProperty("type", "block");
-                output.addProperty("block", Registry.BLOCK.getKey(blockMatch.block()).toString());
-            } else if (value == BlockStatePredicate.Simple.ALL)
-                return null;
-            else throw new RuntimeException("Can't decide what block to use for recipe! Can only use Block or Tag!");
-
-            return output;
+        public TypeDescJS constructorDescription(DescriptionContext ctx) {
+            return BlockComponent.INPUT.constructorDescription(ctx).or(TagKeyComponent.BLOCK.constructorDescription(ctx));
         }
 
         @Override
-        public BlockStatePredicate read(RecipeJS recipe, Object from) {
-            if (from instanceof JsonObject input) {
-                return BlockStatePredicate.of(switch (input.get("type").getAsString()) {
-                    case "tag" -> "#" + input.get("tag").getAsString();
-                    case "block" -> input.get("block").getAsString();
-                    default -> null;
-                });
+        public JsonElement write(RecipeJS recipe, Either<Block, TagKey<Block>> value) {
+            JsonObject object = new JsonObject();
+            if (value.left().isPresent()) {
+                object.addProperty("type", "block");
+                object.addProperty("block", Registry.BLOCK.getKey(value.left().get()).toString());
+            } else if (value.right().isPresent()) {
+                object.addProperty("type", "tag");
+                object.addProperty("tag", value.right().get().location().toString());
             }
-            return BlockStatePredicate.of(from);
+            return object;
+        }
+
+        @Override
+        public Either<Block, TagKey<Block>> read(RecipeJS recipe, Object from) {
+            if (from instanceof Block block) {
+                return Either.left(block);
+            } else if (from instanceof TagKey<?> tag) {
+                return tag.cast(Registry.BLOCK_REGISTRY).map(Either::<Block, TagKey<Block>>right).orElseThrow(() -> new IllegalArgumentException("Tag " + tag + " does not exist"));
+            } else if (from instanceof JsonObject object) {
+                var type = object.get("type").getAsString();
+                if (type.equals("block")) {
+                    return Either.left(Registry.BLOCK.get(new ResourceLocation(object.get("block").getAsString())));
+                } else if (type.equals("tag")) {
+                    return Either.right(TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(object.get("tag").getAsString())));
+                } else {
+                    return null;
+                }
+            } else {
+                var name = from.toString();
+                if (name.startsWith("#")) {
+                    return Either.right(TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(name.substring(1))));
+                } else {
+                    return Either.left(Registry.BLOCK.get(new ResourceLocation(name)));
+                }
+            }
         }
     };
 
