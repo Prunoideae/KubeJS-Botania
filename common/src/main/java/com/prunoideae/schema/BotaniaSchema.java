@@ -2,8 +2,12 @@ package com.prunoideae.schema;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import com.mojang.datafixers.util.Either;
+import com.prunoideae.custom.brew.BotaniaRegistryObjectBuilderTypes;
+import dev.latvian.mods.kubejs.recipe.InputReplacement;
 import dev.latvian.mods.kubejs.recipe.RecipeJS;
+import dev.latvian.mods.kubejs.recipe.ReplacementMatch;
 import dev.latvian.mods.kubejs.recipe.component.BlockComponent;
 import dev.latvian.mods.kubejs.recipe.component.ComponentRole;
 import dev.latvian.mods.kubejs.recipe.component.RecipeComponent;
@@ -16,10 +20,11 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import vazkii.botania.api.brew.Brew;
 import vazkii.botania.common.crafting.StateIngredientHelper;
 
 public interface BotaniaSchema {
-    RecipeComponent<Either<Block, TagKey<Block>>> BLOCK_INPUT = new RecipeComponent<Either<Block, TagKey<Block>>>() {
+    RecipeComponent<Either<Block, TagKey<Block>>> BLOCK_OR_TAG = new RecipeComponent<>() {
         @Override
         public Class<?> componentClass() {
             return Block.class;
@@ -100,6 +105,38 @@ public interface BotaniaSchema {
                 return StateIngredientHelper.readBlockState(object);
             } else {
                 return UtilsJS.parseBlockState(from.toString());
+            }
+        }
+    };
+
+    RecipeComponent<Brew> BREW = new RecipeComponent<>() {
+        @Override
+        public Class<?> componentClass() {
+            return Brew.class;
+        }
+
+        @Override
+        public ComponentRole role() {
+            return ComponentRole.OUTPUT;
+        }
+
+        @Override
+        public JsonElement write(RecipeJS recipe, Brew value) {
+            ResourceLocation key = BotaniaRegistryObjectBuilderTypes.BREW_REGISTRY.getKey(value);
+            if (key == null) {
+                throw new IllegalArgumentException("Brew " + value + " is not registered");
+            }
+            return new JsonPrimitive(key.toString());
+        }
+
+        @Override
+        public Brew read(RecipeJS recipe, Object from) {
+            if (from instanceof Brew brew) {
+                return brew;
+            } else if (from instanceof JsonPrimitive primitive) {
+                return BotaniaRegistryObjectBuilderTypes.BREW_REGISTRY.get(new ResourceLocation(primitive.getAsString()));
+            } else {
+                return BotaniaRegistryObjectBuilderTypes.BREW_REGISTRY.get(new ResourceLocation(from.toString()));
             }
         }
     };
