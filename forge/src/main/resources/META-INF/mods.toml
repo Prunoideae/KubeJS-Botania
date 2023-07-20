@@ -37,9 +37,9 @@ side = "BOTH"
 [[dependencies.kubejs_botania]]
 modId = "botania"
 mandatory = true
-versionRange = "[1.19.2-436,)"
+versionRange = "[1.19.2-440,)"
 
 [[dependencies.kubejs_botania]]
 modId = "kubejs"
 mandatory = true
-versionRange = "[1902.6.0-build.119,)"
+versionRange = "[1902.6.1-build.277,)"

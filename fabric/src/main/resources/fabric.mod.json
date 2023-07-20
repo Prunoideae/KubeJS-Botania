@@ -25,7 +25,7 @@
         "fabric": "*",
         "minecraft": ">=1.19.2",
         "architectury": ">=6.3.49",
-        "kubejs": ">=1902.6.0-build.119",
-        "botania": ">=1.19.2-436"
+        "kubejs": ">=1902.6.1-build.277",
+        "botania": ">=1.19.2-440"
     }
 }
