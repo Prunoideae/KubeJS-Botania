@@ -1,6 +1,6 @@
 package com.prunoideae.custom.brew;
 
-import dev.latvian.mods.kubejs.registry.KubeJSRegistries;
+import dev.latvian.mods.kubejs.registry.RegistryInfo;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffectInstance;
 
@@ -44,6 +44,6 @@ public class MobEffectHolder {
     }
 
     public MobEffectInstance get() {
-        return new MobEffectInstance(Objects.requireNonNull(KubeJSRegistries.mobEffects().get(effect)), duration, amplifier, ambient, visible, showIcon);
+        return new MobEffectInstance(Objects.requireNonNull(RegistryInfo.MOB_EFFECT.getValue(effect)), duration, amplifier, ambient, visible, showIcon);
     }
 }

@@ -4,22 +4,21 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.mojang.datafixers.util.Either;
-import com.prunoideae.custom.brew.BotaniaRegistryObjectBuilderTypes;
-import dev.latvian.mods.kubejs.recipe.InputReplacement;
 import dev.latvian.mods.kubejs.recipe.RecipeJS;
-import dev.latvian.mods.kubejs.recipe.ReplacementMatch;
 import dev.latvian.mods.kubejs.recipe.component.BlockComponent;
 import dev.latvian.mods.kubejs.recipe.component.ComponentRole;
 import dev.latvian.mods.kubejs.recipe.component.RecipeComponent;
 import dev.latvian.mods.kubejs.recipe.component.TagKeyComponent;
+import dev.latvian.mods.kubejs.registry.RegistryInfo;
 import dev.latvian.mods.kubejs.typings.desc.DescriptionContext;
 import dev.latvian.mods.kubejs.typings.desc.TypeDescJS;
 import dev.latvian.mods.kubejs.util.UtilsJS;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.brew.Brew;
 import vazkii.botania.common.crafting.StateIngredientHelper;
 
@@ -40,7 +39,7 @@ public interface BotaniaSchema {
             JsonObject object = new JsonObject();
             if (value.left().isPresent()) {
                 object.addProperty("type", "block");
-                object.addProperty("block", Registry.BLOCK.getKey(value.left().get()).toString());
+                object.addProperty("block", RegistryInfo.BLOCK.getId(value.left().get()).toString());
             } else if (value.right().isPresent()) {
                 object.addProperty("type", "tag");
                 object.addProperty("tag", value.right().get().location().toString());
@@ -53,22 +52,22 @@ public interface BotaniaSchema {
             if (from instanceof Block block) {
                 return Either.left(block);
             } else if (from instanceof TagKey<?> tag) {
-                return tag.cast(Registry.BLOCK_REGISTRY).map(Either::<Block, TagKey<Block>>right).orElseThrow(() -> new IllegalArgumentException("Tag " + tag + " does not exist"));
+                return tag.cast(Registries.BLOCK).map(Either::<Block, TagKey<Block>>right).orElseThrow(() -> new IllegalArgumentException("Tag " + tag + " does not exist"));
             } else if (from instanceof JsonObject object) {
                 var type = object.get("type").getAsString();
                 if (type.equals("block")) {
-                    return Either.left(Registry.BLOCK.get(new ResourceLocation(object.get("block").getAsString())));
+                    return Either.left(RegistryInfo.BLOCK.getValue(new ResourceLocation(object.get("block").getAsString())));
                 } else if (type.equals("tag")) {
-                    return Either.right(TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(object.get("tag").getAsString())));
+                    return Either.right(TagKey.create(Registries.BLOCK, new ResourceLocation(object.get("tag").getAsString())));
                 } else {
                     return null;
                 }
             } else {
                 var name = from.toString();
                 if (name.startsWith("#")) {
-                    return Either.right(TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(name.substring(1))));
+                    return Either.right(TagKey.create(Registries.BLOCK, new ResourceLocation(name.substring(1))));
                 } else {
-                    return Either.left(Registry.BLOCK.get(new ResourceLocation(name)));
+                    return Either.left(RegistryInfo.BLOCK.getValue(new ResourceLocation(name)));
                 }
             }
         }
@@ -122,7 +121,7 @@ public interface BotaniaSchema {
 
         @Override
         public JsonElement write(RecipeJS recipe, Brew value) {
-            ResourceLocation key = BotaniaRegistryObjectBuilderTypes.BREW_REGISTRY.getKey(value);
+            ResourceLocation key = BotaniaAPI.instance().getBrewRegistry().getKey(value);
             if (key == null) {
                 throw new IllegalArgumentException("Brew " + value + " is not registered");
             }
@@ -134,9 +133,9 @@ public interface BotaniaSchema {
             if (from instanceof Brew brew) {
                 return brew;
             } else if (from instanceof JsonPrimitive primitive) {
-                return BotaniaRegistryObjectBuilderTypes.BREW_REGISTRY.get(new ResourceLocation(primitive.getAsString()));
+                return BotaniaAPI.instance().getBrewRegistry().get(new ResourceLocation(primitive.getAsString()));
             } else {
-                return BotaniaRegistryObjectBuilderTypes.BREW_REGISTRY.get(new ResourceLocation(from.toString()));
+                return BotaniaAPI.instance().getBrewRegistry().get(new ResourceLocation(from.toString()));
             }
         }
     };

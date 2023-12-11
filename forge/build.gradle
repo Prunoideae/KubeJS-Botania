@@ -26,7 +26,7 @@ configurations {
 }
 
 dependencies {
-	forge "net.minecraftforge:forge:${rootProject.forge_version}"
+	forge("net.neoforged:forge:${rootProject.minecraft_version}-${rootProject.forge_version}")
 	// Remove the next line if you don't want to depend on the API
 	modApi "dev.architectury:architectury-forge:${rootProject.architectury_version}"
 	modImplementation "dev.latvian.mods:kubejs-forge:${rootProject.kubejs_version}"
@@ -50,17 +50,14 @@ shadowJar {
 	exclude "architectury.common.json"
 
 	configurations = [project.configurations.shadowCommon]
-	classifier "dev-shadow"
 }
 
 remapJar {
 	input.set shadowJar.archiveFile
 	dependsOn shadowJar
-	classifier null
 }
 
 jar {
-	classifier "dev"
 }
 
 sourcesJar {
